@@ -1,5 +1,9 @@
 Gigalate is a secure and feature-rich crypto wallet browser extension built with React JS, Node.js, MongoDB, and Solidity. It empowers users to easily manage their digital assets, interact with DeFi protocols, and explore the decentralized world with confidence.
 
+
+![Frame 6](https://github.com/LinuxKunaL/gigalate/assets/75113218/f0a83d25-2a06-4167-ad92-505c757709ad)
+
+
 ### Key Features:
 
 Secure: Industry-standard security protocols and best practices ensure the safety of your crypto assets.
