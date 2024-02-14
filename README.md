@@ -21,7 +21,7 @@ We welcome contributions from the open-source community! If you're interested in
 
 ### Getting Started:
 
-Clone the repository: git clone https://github.com/your-username/gigalate.git
+Clone the repository: git clone https://github.com//LinuxKunaL/gigalate.git
 Install dependencies: npm install
 Set up environment variables: Refer to the .env.example file and create a .env file with your configurations.
 Start the development server: npm start
