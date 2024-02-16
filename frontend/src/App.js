@@ -5,13 +5,22 @@ import Setup from "./views/Setup";
 import Home from "./views/Home";
 import Setting from "./views/Setting";
 
+import AppLogo from "./assets/images/Logo.svg";
+
 function App() {
   return (
     <div className="bg-onyx-900 shadow-massive-2 relative h-[37pc] flex flex-col overflow-hidden w-[22pc] border-blue-500d border-onyx-600 border-[1px]d rounded-xl.">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Splash />} />
-          <Route path="setup" element={<Setup />} />
+          <Route path="setup" element={<Setup />}>
+            <Route path="createWallet">
+              <Route path="seedPhrase" />
+              <Route path="confirmSeedPhrase" />
+              <Route path="congratulation" />
+            </Route>
+            <Route path="importWallet" />
+          </Route>
           <Route path="home" element={<Home />}>
             <Route path="send" />
             <Route path="receive" />

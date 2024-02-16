@@ -13,7 +13,7 @@ import {
   MdLockOutline,
 } from "react-icons/md";
 import Button from "../../components/ui/Button";
-
+import { IoIosClose } from "react-icons/io";
 import Tooltip from "../ui/Tooltip";
 
 function Navbar() {
@@ -41,7 +41,14 @@ function Navbar() {
             <b className="text-xs"> sepolia.etherscan.io</b>
           </span>
         </div>
-        <div className="px-4 border-l-2 border-transparent hover:border-indigo-500 py-5 cursor-pointer active:bg-onyx-950/60 transition-all hover:bg-onyx-950 flex items-center gap-2">
+        <div
+          onClick={() =>
+            document
+              .getElementById("popUpConnectedSite")
+              .classList.toggle("!block")
+          }
+          className="px-4 border-l-2 border-transparent hover:border-indigo-500 py-5 cursor-pointer active:bg-onyx-950/60 transition-all hover:bg-onyx-950 flex items-center gap-2"
+        >
           <MdWifiTethering className=" text-indigo-500 w-5 h-5" />
           <span className="text-white/60  text-sm">Connected sites</span>
         </div>
@@ -134,12 +141,236 @@ function Navbar() {
         </div>
         <div className="bottom-0 rounded-t-mdg border-t-[1px] border-onyx-800 absolute w-full bg-onyx-950 h-14 p-2 flex justify-between items-center">
           <Tooltip content="Add a new account" id="addAccount">
-            <Button type="primary" text={<MdAdd />} />
+            <Button
+              onClick={() =>
+                document
+                  .getElementById("popUpCreateAccount")
+                  .classList.toggle("!block")
+              }
+              type="primary"
+              text={<MdAdd />}
+            />
           </Tooltip>
-
           <Tooltip content="Import Account" id="ImportAccount">
-            <Button type="secondary" text={<BiImport />} />
+            <Button
+              onClick={() =>
+                document
+                  .getElementById("popUpImportAccount")
+                  .classList.toggle("!block")
+              }
+              type="secondary"
+              text={<BiImport />}
+            />
           </Tooltip>
+        </div>
+        <div
+          id="popUpImportAccount"
+          className="hidden w-full absolute top-0 z-30 p-3"
+        >
+          <div className="h-full p-4 gap-6 flex flex-col  rounded-xl w-full bg-onyx-900 backdrop-blur-md shadow-massive-2">
+            <div className="flex gap-3 justify-between items-center ">
+              <h2 className="text-white/90 font-semibold text-lg">
+                Import account
+              </h2>
+              <div
+                onClick={() =>
+                  document
+                    .getElementById("popUpImportAccount")
+                    .classList.toggle("!block")
+                }
+                className="inline-flex cursor-pointer items-center justify-center h-9 w-9  flex-col gap-1 text-base  text-center text-onyx-300 duration-500 ease-in-out transform border border-onyx-800 bg-onyx-900 rounded-xl shadow-massive-2 focus:outline-none focus:ring-2 hover:text-indigo-500 focus:ring-offset-2 focus:ring-onyx-300 hover:shadow-none focus:ring-offset-onyx-900"
+              >
+                <IoIosClose />
+              </div>
+            </div>
+            <div className="overflow-auto flex flex-col gap-4">
+              <div className="flex flex-col gap-4">
+                <span className="text-white/80 text-sm flex items-center gap-2">
+                  private key string here
+                </span>
+                <input
+                  type="text"
+                  className="w-full px-5 py-2 text-onyx-400/80 bg-onyx-950/50 border-[1px] outline-none border-onyx-700/50 hover:border-indigo-500/50 transition-all shadow-massive-2as rounded-md"
+                  placeholder="Enter your private key string"
+                />
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <Button
+                type="secondary"
+                onClick={() =>
+                  document
+                    .getElementById("popUpImportAccount")
+                    .classList.toggle("!block")
+                }
+                className="flex-1"
+                text="Cancel"
+              />
+              <Button type="primary" className="flex-1" text="Import" />
+            </div>
+          </div>
+        </div>
+        <div
+          id="popUpCreateAccount"
+          className="hidden w-full absolute top-0 z-30 p-3"
+        >
+          <div className="h-full p-4 gap-6 flex flex-col  rounded-xl w-full bg-onyx-900 backdrop-blur-md shadow-massive-2">
+            <div className="flex gap-3 justify-between items-center ">
+              <h2 className="text-white/90 font-semibold text-lg">
+                Add account
+              </h2>
+              <div
+                onClick={() =>
+                  document
+                    .getElementById("popUpCreateAccount")
+                    .classList.toggle("!block")
+                }
+                className="inline-flex cursor-pointer items-center justify-center h-9 w-9  flex-col gap-1 text-base  text-center text-onyx-300 duration-500 ease-in-out transform border border-onyx-800 bg-onyx-900 rounded-xl shadow-massive-2 focus:outline-none focus:ring-2 hover:text-indigo-500 focus:ring-offset-2 focus:ring-onyx-300 hover:shadow-none focus:ring-offset-onyx-900"
+              >
+                <IoIosClose />
+              </div>
+            </div>
+            <div className="overflow-auto flex flex-col gap-4">
+              <div className="flex flex-col gap-4">
+                <span className="text-white/80 text-sm flex items-center gap-2">
+                  Account name
+                </span>
+                <input
+                  type="text"
+                  className="w-full px-5 py-2 text-onyx-400/80 bg-onyx-950/50 border-[1px] outline-none border-onyx-700/50 hover:border-indigo-500/50 transition-all shadow-massive-2as rounded-md"
+                  placeholder="Enter your Account name "
+                />
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <Button
+                type="secondary"
+                onClick={() =>
+                  document
+                    .getElementById("popUpCreateAccount")
+                    .classList.toggle("!block")
+                }
+                className="flex-1"
+                text="Cancel"
+              />
+              <Button type="primary" className="flex-1" text="Create" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="popUpConnectedSite"
+        className="hidden w-full absolute top-0 z-30 p-3"
+      >
+        <div className="h-full p-4 gap-6 flex flex-col  rounded-xl w-full bg-onyx-900 backdrop-blur-md shadow-massive-2">
+          <div className="flex gap-3 justify-between items-center ">
+            <h2 className="text-white/90 font-semibold text-lg">
+              Connected sites
+            </h2>
+            <div
+              onClick={() =>
+                document
+                  .getElementById("popUpConnectedSite")
+                  .classList.toggle("!block")
+              }
+              className="inline-flex cursor-pointer items-center justify-center h-9 w-9  flex-col gap-1 text-base  text-center text-onyx-300 duration-500 ease-in-out transform border border-onyx-800 bg-onyx-900 rounded-xl shadow-massive-2 focus:outline-none focus:ring-2 hover:text-indigo-500 focus:ring-offset-2 focus:ring-onyx-300 hover:shadow-none focus:ring-offset-onyx-900"
+            >
+              <IoIosClose />
+            </div>
+          </div>
+          <div className="overflow-auto flex flex-col gap-4">
+            <div className="flex justify-between items-center">
+              <div className="flex gap-3 items-center">
+                <img
+                  src="https://gigatrade.vercel.app/fav/android-icon-192x192.png"
+                  className="h-8 w-8 rounded-full bg-indigo-500/30"
+                  alt=""
+                />
+                <span className="text-sm text-white/80">app.uniswap.org</span>
+              </div>
+              <b className=" select-none text-indigo-500 active:scale-95 hover:text-indigo-400 transition-all font-semibold cursor-pointer text-sm">
+                Disconnect
+              </b>
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="flex gap-3 items-center">
+                <img
+                  src="https://gigatrade.vercel.app/fav/android-icon-192x192.png"
+                  className="h-8 w-8 rounded-full bg-indigo-500/30"
+                  alt=""
+                />
+                <span className="text-sm text-white/80">app.uniswap.org</span>
+              </div>
+              <b className=" select-none text-indigo-500 active:scale-95 hover:text-indigo-400 transition-all font-semibold cursor-pointer text-sm">
+                Disconnect
+              </b>
+            </div>{" "}
+            <div className="flex justify-between items-center">
+              <div className="flex gap-3 items-center">
+                <img
+                  src="https://gigatrade.vercel.app/fav/android-icon-192x192.png"
+                  className="h-8 w-8 rounded-full bg-indigo-500/30"
+                  alt=""
+                />
+                <span className="text-sm text-white/80">app.uniswap.org</span>
+              </div>
+              <b className=" select-none text-indigo-500 active:scale-95 hover:text-indigo-400 transition-all font-semibold cursor-pointer text-sm">
+                Disconnect
+              </b>
+            </div>{" "}
+            <div className="flex justify-between items-center">
+              <div className="flex gap-3 items-center">
+                <img
+                  src="https://gigatrade.vercel.app/fav/android-icon-192x192.png"
+                  className="h-8 w-8 rounded-full bg-indigo-500/30"
+                  alt=""
+                />
+                <span className="text-sm text-white/80">app.uniswap.org</span>
+              </div>
+              <b className=" select-none text-indigo-500 active:scale-95 hover:text-indigo-400 transition-all font-semibold cursor-pointer text-sm">
+                Disconnect
+              </b>
+            </div>{" "}
+            <div className="flex justify-between items-center">
+              <div className="flex gap-3 items-center">
+                <img
+                  src="https://gigatrade.vercel.app/fav/android-icon-192x192.png"
+                  className="h-8 w-8 rounded-full bg-indigo-500/30"
+                  alt=""
+                />
+                <span className="text-sm text-white/80">app.uniswap.org</span>
+              </div>
+              <b className=" select-none text-indigo-500 active:scale-95 hover:text-indigo-400 transition-all font-semibold cursor-pointer text-sm">
+                Disconnect
+              </b>
+            </div>{" "}
+            <div className="flex justify-between items-center">
+              <div className="flex gap-3 items-center">
+                <img
+                  src="https://gigatrade.vercel.app/fav/android-icon-192x192.png"
+                  className="h-8 w-8 rounded-full bg-indigo-500/30"
+                  alt=""
+                />
+                <span className="text-sm text-white/80">app.uniswap.org</span>
+              </div>
+              <b className=" select-none text-indigo-500 active:scale-95 hover:text-indigo-400 transition-all font-semibold cursor-pointer text-sm">
+                Disconnect
+              </b>
+            </div>{" "}
+            <div className="flex justify-between items-center">
+              <div className="flex gap-3 items-center">
+                <img
+                  src="https://gigatrade.vercel.app/fav/android-icon-192x192.png"
+                  className="h-8 w-8 rounded-full bg-indigo-500/30"
+                  alt=""
+                />
+                <span className="text-sm text-white/80">app.uniswap.org</span>
+              </div>
+              <b className=" select-none text-indigo-500 active:scale-95 hover:text-indigo-400 transition-all font-semibold cursor-pointer text-sm">
+                Disconnect
+              </b>
+            </div>
+          </div>
         </div>
       </div>
     </nav>

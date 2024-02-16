@@ -5,7 +5,7 @@ import {
   MdOutlineSettingsInputComponent,
   MdOutlineSecurity,
 } from "react-icons/md";
-import { LuBookOpen } from "react-icons/lu";
+import { BiLogOutCircle } from "react-icons/bi";
 
 import { Link } from "react-router-dom";
 
@@ -34,18 +34,18 @@ function Menu() {
         <span className="text-white/60 text-sm">Security & privacy</span>
       </Link>
       <Link
-        to="contacts"
-        className="px-4 border-l-2 border-transparent hover:border-indigo-500 py-5 cursor-pointer active:bg-onyx-950/60 transition-all hover:bg-onyx-950 flex items-center gap-2"
-      >
-        <LuBookOpen className=" text-indigo-500 w-5 h-5" />
-        <span className="text-white/60 text-sm">Contacts</span>
-      </Link>
-      <Link
         to="networks"
         className="px-4 border-l-2 border-transparent hover:border-indigo-500 py-5 cursor-pointer active:bg-onyx-950/60 transition-all hover:bg-onyx-950 flex items-center gap-2"
       >
         <IoMdGitNetwork className=" text-indigo-500 w-5 h-5" />
         <span className="text-white/60 text-sm">Networks</span>
+      </Link>
+      <Link
+        to="/"
+        className="px-4 border-l-2 border-transparent hover:border-indigo-500 py-5 cursor-pointer active:bg-onyx-950/60 transition-all hover:bg-onyx-950 flex items-center gap-2"
+      >
+        <BiLogOutCircle className=" text-indigo-500 w-5 h-5" />
+        <span className="text-white/60 text-sm">Logout</span>
       </Link>
     </div>
   );

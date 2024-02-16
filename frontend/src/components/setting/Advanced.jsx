@@ -40,7 +40,7 @@ function Advanced() {
                 <FaCircleExclamation className="cursor-pointer" />
               </Tooltip>
             </span>
-            <Button type="Reddest" text="Clear activity" />
+            <Button type="reddest" text="Clear activity" />
           </div>
         </div>
         <div className="flex flex-col gap-2">

@@ -6,7 +6,6 @@ import Header from "../components/setting/Header";
 import General from "../components/setting/General";
 import Advanced from "../components/setting/Advanced";
 import SecurityPrivacy from "../components/setting/Security&privacy";
-import Contacts from "../components/setting/Contacts";
 import Networks from "../components/setting/Networks";
 
 function Setting() {
@@ -18,7 +17,6 @@ function Setting() {
         <Route path="general" element={<General />} />
         <Route path="advanced" element={<Advanced />} />
         <Route path="securityPrivacy" element={<SecurityPrivacy />} />
-        <Route path="contacts" element={<Contacts />} />
         <Route path="networks" element={<Networks />} />
       </Routes>
     </div>

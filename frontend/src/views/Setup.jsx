@@ -1,24 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Button from "../components/ui/Button";
+import { Routes, Route } from "react-router-dom";
+
+import Main from "../components/setup/Main";
+import CreateWallet from "../components/setup/CreateWallet";
+import ImportWallet from "../components/setup/ImportWallet";
 
 function Setup() {
   return (
-    <div className="flex w-full flex-col h-full justify-around  px-5 py-3">
-      <h1 className="text-2xl text-center bg-gradient-to-r from-onyx-100 font-semibold to-onyx-500 text-transparent bg-clip-text drop-shadow-lg ">
-        Gigalate
-      </h1>
-      <div className="flex flex-col gap-4">
-        <Button
-          type="secondary"
-          text={<Link to="/home">Import Using Seed Phrase</Link>}
-        />
-        <Button
-          type="primary"
-          text={<Link>Create a New Wallet</Link>}
-        />
-      </div>
-    </div>
+    <Routes>
+      <Route index element={<Main />} />
+      <Route path="createWallet" element={<CreateWallet />}>
+        <Route path="seedPhrase" />
+        <Route path="confirmSeedPhrase" />
+        <Route path="congratulation" />
+      </Route>
+      <Route path="importWallet" element={<ImportWallet />} />
+    </Routes>
   );
 }
 
