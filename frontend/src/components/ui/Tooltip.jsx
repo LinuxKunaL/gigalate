@@ -2,20 +2,23 @@ import React from "react";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 
 function Tooltip({
-  className,
   id,
-  content,
-  AfterCLickContent,
   place,
+  content,
   children,
+  className,
+  AfterCLickContent,
 }) {
   return (
     <div
       data-tooltip-html={content}
       data-tooltip-id={id}
+      onMouseOut={(e) =>
+        e.currentTarget.setAttribute("data-tooltip-html", content)
+      }
       onClick={(e) =>
         e.currentTarget.setAttribute(
-          "data-tooltip-content",
+          "data-tooltip-html",
           AfterCLickContent ? AfterCLickContent : content
         )
       }

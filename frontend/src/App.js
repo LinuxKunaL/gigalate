@@ -1,11 +1,10 @@
 import { BrowserRouter, MemoryRouter, Routes, Route } from "react-router-dom";
 
-import Splash from "./views/Splash";
-import Setup from "./views/Setup";
-import Home from "./views/Home";
-import Setting from "./views/Setting";
-
-import AppLogo from "./assets/images/Logo.svg";
+import Splash from "./views/Splash/Splash";
+import Setup from "./views/Setup/Setup";
+import Home from "./views/Home/Home";
+import Setting from "./views/Setting/Setting";
+import Lock from "./views/Lock/Lock";
 
 function App() {
   return (
@@ -32,6 +31,7 @@ function App() {
             <Route path="contacts" />
             <Route path="networks" />
           </Route>
+          <Route path="lock" element={<Lock />} />
         </Routes>
       </BrowserRouter>
     </div>
